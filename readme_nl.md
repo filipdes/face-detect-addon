@@ -2,7 +2,7 @@
 
 
 
-Taal: \*\*Nederlands\*\* | \[English](README.md)
+Taal: \*\*Nederlands\*\* | \[English](readme.md)
 
 
 
