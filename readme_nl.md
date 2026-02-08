@@ -1,10 +1,6 @@
-\# ESP32-CAM gezichtsdetectie met Home Assistant (MQTT Add-on)
+# ESP32-CAM gezichtsdetectie met Home Assistant (MQTT Add-on)
 
+Taal: **Nederlands** | [English](readme.md)
 
-
-Taal: \*\*Nederlands\*\* | \[English](readme.md)
-
-
-
-\## TO DO
+## TO DO
 
