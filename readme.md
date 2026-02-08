@@ -78,22 +78,22 @@ This ensures:
 
 The add-on registers a camera entity automatically using MQTT Discovery:
 
-´homeassistant/camera/<unique\_id>/config´
+    homeassistant/camera/<unique_id>/config
 
 Example payload:
 
-&nbsp;   {
-    "name": "ESP32 Cam MQTT Facedetect",
-    "unique\\\_id": "esp32\\\_cam\\\_facedetect\\\_student01",
-    "image\\\_topic": "img/student01/frame",
-    "image\\\_encoding": "b64"
+    {
+    "name": "ESP32 Cam MQTT Facedetect student01",
+    "unique_id": "esp32_cam_facedetect_student01",
+    "topic": "student01/img",
+    "image_encoding": "b64"
     }
 
 
 Important for classrooms!!
 Each student must use:
 
-* a unique unique\_id
+* a unique unique_id
 * unique MQTT topics
 
 Otherwise entities will overwrite each other when using the same mqtt broker.
@@ -147,7 +147,7 @@ Typical options:
 * FTP server settings
 * Camera entity ID
 
-For local testing, the same code can read a ../data/options.json file.
+For local testing, the same code can read a ../data/options.json file which you have to complete manually.
 
 ## Local Development vs Add-on
 
@@ -167,33 +167,33 @@ This allows seamless testing before deployment.
 
 This project works very well in a classroom because:
 
-** every student can use their own MQTT topic
-** Home Assistant provides instant visual feedback
-** concepts are concrete and observable
-** students can extend the project themselves
+* every student can use their own MQTT topic
+* Home Assistant provides instant visual feedback
+* Concepts are concrete and observable
+* Students can extend the project themselves
 
 Suggested assignments:
 
-** change detection parameters
-** add MQTT automations
-** extend the state machine
-** log detection statistics
+* Change detection parameters
+* Add MQTT automations
+* Extend the state machine
+* Log detection statistics
 
 ## License
-
+ 
 This project is intended for educational use.
 
 You are free to:
 
-** use
-** modify
-** extend
-** teach with this project
+* use
+* modify
+* extend
+* teach with this project
 
 Attribution is appreciated.
 
 ## Acknowledgements
 
-** OpenCV community
-** Home Assistant developers
-** ESPHome project
+* OpenCV community
+* Home Assistant developers
+* ESPHome project
