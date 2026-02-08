@@ -1,4 +1,4 @@
-\# Face Detect
+# Face Detect
 
 
 
@@ -6,7 +6,7 @@ Deze add-on detecteert gezichten in camerabeelden en publiceert de resultaten vi
 
 
 
-\## ⚙️ Installatie
+## ⚙️ Installatie
 
 1. Voeg deze repository toe aan Home Assistant
 2. Installeer de Face Detect add-on
@@ -15,7 +15,7 @@ Deze add-on detecteert gezichten in camerabeelden en publiceert de resultaten vi
 
 
 
-\## 🔧 Configuratie
+## 🔧 Configuratie
 
 Voorbeeldconfiguratie:
 
