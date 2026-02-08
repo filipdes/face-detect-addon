@@ -30,16 +30,16 @@ No advanced AI knowledge is required.
 
 ## System Architecture
 
-ESP32-CAM
-↓ (camera stream)
-Home Assistant
-↓ (snapshot API)
-Python Add-on
-├─ Face detection (OpenCV)
-├─ MQTT publish (image + data)
-└─ FTP upload (detected faces)
-↓
-Home Assistant Dashboard \& Automations
+    ESP32-CAM
+    ↓ (camera stream)
+    Home Assistant
+    ↓ (snapshot API)
+    Python Add-on
+    ├─ Face detection (OpenCV)
+    ├─ MQTT publish (image + data)
+    └─ FTP upload (detected faces)
+    ↓
+    Home Assistant Dashboard \& Automations
 
 ## Requirements
 
@@ -56,6 +56,7 @@ Home Assistant Dashboard \& Automations
 * Python 3.10+
 * OpenCV
 * Paho-MQTT
+* Threading
 * Requests
 * NumPy
 
@@ -64,7 +65,7 @@ Home Assistant Dashboard \& Automations
 The camera is accessed via Home Assistant, not directly from Python.
 The add-on uses the Home Assistant REST API:
 
-&nbsp;   /api/camera\\\_proxy/camera.<camera\\\_entity>
+&nbsp;   /api/camera_proxy/camera.<camera_entity>
 
 
 This ensures:
