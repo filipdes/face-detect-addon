@@ -16,5 +16,6 @@
 "TEST_ON_PC":0,
 "FTP_USER":"username FTP server",
 "FTP_PWD":"password FTP server",
-"FTP_SERVER":"host FTP server"
+"FTP_SERVER":"host FTP server",
+"TIMES_TO_WAIT":10
 }

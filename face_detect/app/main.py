@@ -21,10 +21,12 @@ def upload_face_ftp(server,username,pwd,face,filename):
         err("JPEG encoding failed")
 
     bio = BytesIO(encoded.tobytes())
-
-    with FTP(server) as ftp:
-        ftp.login(username, pwd)
-        ftp.storbinary(f"STOR {filename}", bio)
+    try:
+        with FTP(server,timeout=5) as ftp:
+            ftp.login(username, pwd)
+            ftp.storbinary(f"STOR {filename}", bio)
+    except Exception as E:
+        err(f"problem with FTP connection:{E}")
     
 
 
@@ -196,7 +198,7 @@ while True:
             time.sleep(0.25)
             wait_counter += 1
 
-            if wait_counter > 20:
+            if wait_counter > cfgs['TIMES_TO_WAIT']:
                 info("No response → next frame")
                 with response_lock:
                     ha_response = None
