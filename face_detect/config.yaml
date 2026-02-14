@@ -30,6 +30,7 @@ options:
   FTP_USER: ""
   FTP_PWD: ""
   TIMES_TO_WAIT: 10
+  DETECT_1_FACE: "on"
 
 schema:
   TOKEN: str
@@ -51,6 +52,7 @@ schema:
   FTP_USER: str
   FTP_PWD: password
   TIMES_TO_WAIT: int
+  DETECT_1_FACE: str
 
 host_network: true
 mqtt: false

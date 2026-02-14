@@ -38,7 +38,9 @@ Voorbeeldconfiguratie:
     "TEST_ON_PC":0,
     "FTP_USER":"username FTP server",
     "FTP_PWD":"password FTP server",
-    "FTP_SERVER":"host FTP server"
+    "FTP_SERVER":"host FTP server",
+    "TIMES_TO_WAIT":10,
+    "DETECT_1_FACE":"on"
     }
 
 
@@ -47,8 +49,9 @@ Voorbeeldconfiguratie:
 * De add-on ontvangt beelden.
 * Detecteert gezichten.
 * Stuurt resultaten via MQTT.
-  * Beeld met kader rond eerst gedetecteerd gezicht.
-  * Boodschap met aanta l gedetecteerde gezichten.
+  * Beeld met kader rond eerst gedetecteerd gezicht of alle gedetecteerde gezichten afhankelijk van de configuratie variabele: DETECT_1_FACE.
+  * Boodschap met aantal gedetecteerde gezichten.
+  * Kan mqtt boodschap save/skip ontvangen. Indien save kan het gedetecteerde gezicht of gezichten worden opgeslagen op een FTP server.
 
 ## 🪵 Logs
 

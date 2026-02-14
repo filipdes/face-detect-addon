@@ -39,7 +39,7 @@ No advanced AI knowledge is required.
     ├─ MQTT publish (image + data)
     └─ FTP upload (detected faces)
     ↓
-    Home Assistant Dashboard \& Automations
+    Home Assistant Dashboard & Automations
 
 ## Requirements
 
@@ -65,7 +65,7 @@ No advanced AI knowledge is required.
 The camera is accessed via Home Assistant, not directly from Python.
 The add-on uses the Home Assistant REST API:
 
-&nbsp;   /api/camera_proxy/camera.<camera_entity>
+    /api/camera_proxy/camera.<camera_entity>
 
 
 This ensures:
@@ -106,7 +106,7 @@ Otherwise entities will overwrite each other when using the same mqtt broker.
   * scaleFactor
   * minNeighbors
 
-* Only the first detected face is processed (for simplicity)
+* You can choose to only proces the first detected face (for simplicity) or to process all faces.
 
 Detected faces can:
 
@@ -175,6 +175,7 @@ This project works very well in a classroom because:
 Suggested assignments:
 
 * Change detection parameters
+* Choose to register 1 face or all detected faces by adjusting the configuration variable: DETECT_1_FACE
 * Add MQTT automations
 * Extend the state machine
 * Log detection statistics

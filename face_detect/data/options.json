@@ -17,5 +17,6 @@
 "FTP_USER":"username FTP server",
 "FTP_PWD":"password FTP server",
 "FTP_SERVER":"host FTP server",
-"TIMES_TO_WAIT":10
+"TIMES_TO_WAIT":10,
+"DETECT_1_FACE":"on"
 }

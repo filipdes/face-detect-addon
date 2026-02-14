@@ -113,20 +113,25 @@ while True:
     # STATE: CAPTURE
     # ======================
     elif state == STATE_CAPTURE:
-        resp = requests.get(cfgs["HA_URL"], headers=headers, timeout=2)
+        try:
+            resp = requests.get(cfgs["HA_URL"], headers=headers, timeout=2)
 
-        if resp.status_code != 200:
-            err(f"Snapshot failed ({resp.status_code})")
+            if resp.status_code != 200:
+                err(f"Snapshot failed ({resp.status_code})")
+                time.sleep(1)
+                state = STATE_IDLE
+                continue
+
+            arr = np.asarray(bytearray(resp.content), dtype=np.uint8)
+            frame = cv2.imdecode(arr, cv2.IMREAD_COLOR)
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        except Exception as E:
+            err(f"Error reading or converting image ({E})")
             time.sleep(1)
             state = STATE_IDLE
             continue
 
-        arr = np.asarray(bytearray(resp.content), dtype=np.uint8)
-        frame = cv2.imdecode(arr, cv2.IMREAD_COLOR)
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
         state = STATE_PROCESS
-
 
     # ======================
     # STATE: PROCESS
@@ -139,9 +144,20 @@ while True:
         )
 
         if len(faces) > 0:
-            (x, y, w, h) = faces[0]
-            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-            gray_crop = gray[y:y+h, x:x+w]
+            if cfgs["DETECT_1_FACE"] == "on":
+                (x, y, w, h) = faces[0]
+                cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+                gray_crop = gray[y:y+h, x:x+w]
+            else:
+                x_s = [];y_s = []
+                for (x,y,w,h) in faces:
+                    x_s.append(x);y_s.append(y)
+                    x_s.append(x+w);y_s.append(y+h)
+                    cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+                min_x = min(x_s);min_y = min(y_s)
+                max_x = max(x_s);max_y = max(y_s)
+                gray_crop = gray[min_y:max_y, min_x:max_x]
+                    
             mqtt_client.publish(cfgs['UNIQUE_PERSON_ID']+"/"+cfgs['MQTT_TRIG_CNT_FACES_TOPIC'],
                                 str(len(faces)),
                                 retain=False)
