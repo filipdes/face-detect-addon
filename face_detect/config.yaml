@@ -1,5 +1,5 @@
 name: Face Detect MQTT
-version: "1.0.0"
+version: "1.1.0"
 slug: face_detect_mqtt
 description: Detect faces and send snapshots and number of faces via MQTT. Store faces on ftp server.
 startup: services
